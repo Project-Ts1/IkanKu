@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Ikan Segar & Olahan - IkanKu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        const defaultTheme = tailwind.defaultTheme;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .modal-body-scroll {
+            max-height: calc(90vh - 150px); 
+            overflow-y: auto;
+        }
+        .product-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card .p-6 {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #scrollTopBtn {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans bg-sky-100 text-slate-800 antialiased">
+
+    <nav class="bg-white text-blue-700 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                     <a class="text-2xl font-bold flex items-center group" href="index.html">
+                        <img src="assets/images/Logo IkanKu.svg" alt="Logo IkanKu" class="h-8 w-auto mr-2" loading="eager"> 
+                        <span class="text-blue-700 group-hover:text-blue-500 transition-colors duration-300">IkanKu</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-1">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-sky-100 hover:text-blue-600 transition duration-150 ease-in-out">Beranda</a>
+                        <a href="tentang-kami.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-sky-100 hover:text-blue-600 transition duration-150 ease-in-out">Tentang Kami</a>
+                        <a href="pesan-sekarang.html" class="bg-sky-100 text-blue-700 font-semibold px-3 py-2 rounded-md text-sm transition duration-150 ease-in-out" aria-current="page">Pesan Sekarang</a>
+                        <a href="testimoni.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-sky-100 hover:text-blue-600 transition duration-150 ease-in-out">Testimoni</a>
+                    </div>
+                </div>
+                 <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button-ps" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-blue-700 hover:text-blue-500 hover:bg-sky-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu-ps" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" id="icon-open-ps" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                        <svg class="hidden h-6 w-6" id="icon-close-ps" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+         <div class="md:hidden hidden" id="mobile-menu-ps">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="hover:bg-sky-100 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Beranda</a>
+                <a href="tentang-kami.html" class="hover:bg-sky-100 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Tentang Kami</a>
+                <a href="pesan-sekarang.html" class="bg-sky-100 text-blue-700 font-semibold block px-3 py-2 rounded-md text-base" aria-current="page">Pesan Sekarang</a>
+                <a href="testimoni.html" class="hover:bg-sky-100 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Testimoni</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-blue-200">
+                <div class="px-5 flex justify-around items-center">
+                    <a href="https://www.facebook.com/share/1Ack7xFb5F/" class="text-blue-700 hover:text-blue-500 p-1" aria-label="Facebook IkanKu">
+                        <i class="fab fa-facebook fa-lg"></i><span class="sr-only">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/ikankukampar?igsh=YnlucWV1N2FhZndy" class="text-blue-700 hover:text-blue-500 p-1" aria-label="Instagram IkanKu">
+                        <i class="fab fa-instagram fa-lg"></i><span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="https://wa.me/6282381422067?text=Halo%20IkanKu,%20saya%20ingin%20bertanya%20tentang%20produk%20ikan." target="_blank" class="text-blue-700 hover:text-blue-500 p-1" aria-label="WhatsApp IkanKu">
+                        <i class="fab fa-whatsapp fa-lg"></i><span class="sr-only">WhatsApp</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@ikanku30?_t=ZS-8w7d0HvqFV4&_r=1" class="text-blue-700 hover:text-blue-500 p-1" aria-label="TikTok IkanKu">
+                        <i class="fab fa-tiktok fa-lg"></i><span class="sr-only">TikTok</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-white py-8 sm:py-12 shadow" data-aos="fade-in">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-700">Pilihan Produk IkanKu</h1>
+            <p class="mt-3 text-lg text-slate-600">Klik pada produk untuk detail dan pemesanan.</p>
+        </div>
+    </div>
+
+    <section class="py-16 sm:py-24 bg-sky-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 mb-8 text-center" data-aos="fade-in">Ikan Air Tawar Segar</h2>
+                <div class="grid grid-cols-[repeat(auto-fit,minmax(19rem,1fr))] gap-8">
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Ikan Nila"
+                         data-price="Rp 35.000 / kg"
+                         data-image="assets/images/Fish/Nila.svg"
+                         data-description="Ikan Nila segar dengan daging tebal dan rasa gurih. Sangat cocok untuk dibakar, digoreng, atau dimasak kuah. Sumber protein yang baik untuk keluarga."
+                         data-availability="Tersedia"
+                         data-availability-class="bg-green-100 text-green-700"
+                         data-aos="zoom-in-up" data-aos-delay="50">
+                        <img src="assets/images/Fish/Nila.svg" alt="Ikan Nila" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Ikan Nila</h4>
+                                <div class="text-xs font-semibold text-slate-500 mb-2">
+                                    <span>Protein: 26g</span> | <span>Lemak: 3g</span> | <span>Kalori: 128</span>
+                                </div>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 35.000 / kg</p>
+                            </div>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Tersedia</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Ikan Patin"
+                         data-price="Rp 25.000 / kg" 
+                         data-image="assets/images/Fish/Patin.svg" 
+                         data-description="Ikan Patin segar, tekstur dagingnya lembut dan berlemak. Cocok untuk pindang patin, gulai, atau dibakar."
+                         data-availability="Tersedia" 
+                         data-availability-class="bg-green-100 text-green-700"
+                         data-aos="zoom-in-up" data-aos-delay="100">
+                        <img src="assets/images/Fish/Patin.svg" alt="Ikan Patin" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Ikan Patin</h4>
+                                <div class="text-xs font-semibold text-slate-500 mb-2">
+                                    <span>Protein: 17g</span> | <span>Lemak: 6.6g</span> | <span>Kalori: 135</span>
+                                </div>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 25.000 / kg</p>
+                            </div>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Tersedia</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Ikan Lele"
+                         data-price="Rp 20.000 / kg" 
+                         data-image="assets/images/Fish/Lele.svg" 
+                         data-description="Ikan Lele segar, dikenal dengan dagingnya yang lembut dan gurih. Cocok untuk pecel lele, digoreng kering, atau dimasak mangut."
+                         data-availability="Stok Terbatas" 
+                         data-availability-class="bg-yellow-100 text-yellow-700"
+                         data-aos="zoom-in-up" data-aos-delay="150">
+                        <img src="assets/images/Fish/Lele.svg" alt="Ikan Lele" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Ikan Lele</h4>
+                                <div class="text-xs font-semibold text-slate-500 mb-2">
+                                    <span>Protein: 18g</span> | <span>Lemak: 3g</span> | <span>Kalori: 105</span>
+                                </div>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 20.000 / kg</p>
+                            </div>
+                            <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Stok Terbatas</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Ikan Baung"
+                         data-price="Rp 40.000 / kg" 
+                         data-image="assets/images/Fish/Baung.svg" 
+                         data-description="Ikan Baung segar, dengan daging yang lezat dan khas. Populer untuk masakan gulai, asam pedas, atau sup ikan."
+                         data-availability="Tersedia" 
+                         data-availability-class="bg-green-100 text-green-700"
+                         data-aos="zoom-in-up" data-aos-delay="200">
+                        <img src="assets/images/Fish/Baung.svg" alt="Ikan Baung" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy"> 
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Ikan Baung</h4>
+                                <div class="text-xs font-semibold text-slate-500 mb-2">
+                                    <span>Protein: 17.8g</span> | <span>Lemak: 5.8g</span> | <span>Kalori: 144</span>
+                                </div>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 40.000 / kg</p>
+                            </div>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Tersedia</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Ikan Mas"
+                         data-price="Rp 30.000 / kg" 
+                         data-image="assets/images/Fish/Emas.svg" 
+                         data-description="Ikan Mas segar. Dikenal dengan rasanya yang manis dan tekstur daging yang lembut. Enak untuk dipepes, arsik, atau digoreng."
+                         data-availability="Musiman" 
+                         data-availability-class="bg-orange-100 text-orange-700"
+                         data-aos="zoom-in-up" data-aos-delay="250">
+                        <img src="assets/images/Fish/Emas.svg" alt="Ikan Mas" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                           <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Ikan Mas</h4>
+                                <div class="text-xs font-semibold text-slate-500 mb-2">
+                                    <span>Protein: 16g</span> | <span>Lemak: 2.5g</span> | <span>Kalori: 90</span>
+                                </div>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 30.000 / kg</p>
+                           </div>
+                            <span class="inline-block bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Musiman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-10 border-t-2 border-blue-200/50">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 mb-8 text-center" data-aos="fade-up">Produk Olahan Ikan</h2>
+                <div class="grid grid-cols-[repeat(auto-fit,minmax(19rem,1fr))] gap-8">
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Bakso Ikan (1)"
+                         data-price="Rp 25.000 / Pack (250g)"
+                         data-image="assets/images/Product/BaksoIkan(1).jpg" 
+                         data-description="Nugget ikan homemade, dibuat dari daging ikan segar pilihan, tanpa MSG dan pengawet. Lezat, praktis, dan sehat untuk keluarga."
+                         data-availability="Selalu Tersedia"
+                         data-availability-class="bg-green-100 text-green-700"
+                         data-aos="zoom-in-up" data-aos-delay="50">
+                        <img src="assets/images/Product/BaksoIkan(1).jpg" alt="Bakso Ikan (1)" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Bakso Ikan (1)</h4>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 35.000 / Pack</p>
+                            </div>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Selalu Tersedia</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Bakso Ikan (2)"
+                         data-price="Rp 35.000/ Pack (20 pcs)"
+                         data-image="assets/images/Product/BaksoIkan(2).jpg" 
+                         data-description="Bakso ikan dengan tekstur kenyal dan rasa ikan yang kuat. Cocok untuk sup, mie, atau sebagai camilan."
+                         data-availability="Tersedia"
+                         data-availability-class="bg-green-100 text-green-700"
+                         data-aos="zoom-in-up" data-aos-delay="100">
+                        <img src="assets/images/Product/BaksoIkan(2).jpg" alt="Bakso Ikan (2)"" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Bakso Ikan (2)</h4>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 35.000 / Pack</p>
+                            </div>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Tersedia</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Abon Patin"
+                         data-price="Rp 22.000 / Pack (5 pcs)"
+                         data-image="assets/images/Product/AbonPatin.jpg" 
+                         data-description="Sosis ikan rasa original, kaya protein dan rendah lemak. Pilihan tepat untuk sarapan atau bekal anak."
+                         data-availability="Stok Terbatas"
+                         data-availability-class="bg-yellow-100 text-yellow-700"
+                         data-aos="zoom-in-up" data-aos-delay="150">
+                        <img src="assets/images/Product/AbonPatin.jpg" alt="Abon Patin" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Abon Patin</h4>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 35.000 / Pack</p>
+                            </div>
+                            <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Stok Terbatas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Patin Krispy"
+                         data-price="Rp 30.000 / Pack"
+                         data-image="assets/images/Product/PatinKrispi.jpg" 
+                         data-description="Patin Krispy" dengan aroma khas dan bumbu meresap. Disajikan dengan saus kacang pedas manis."
+                         data-availability="Pre-Order"
+                         data-availability-class="bg-blue-100 text-blue-700"
+                         data-aos="zoom-in-up" data-aos-delay="200">
+                        <img src="assets/images/Product/PatinKrispi.jpg" alt="Patin Krispy"" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Patin Krispy"</h4>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 45.000 / Pack</p>
+                            </div>
+                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Pre-Order</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Nugget Ikan Stick"
+                         data-price="Rp 35.000 / Pack"
+                         data-image="assets/images/Product/NuggetIkanStick.jpg" 
+                         data-description="Nugget Ikan Stick Palembang, lengkap dengan cuko kental. Terbuat dari ikan tenggiri segar."
+                         data-availability="Tersedia"
+                         data-availability-class="bg-green-100 text-green-700"
+                         data-aos="zoom-in-up" data-aos-delay="250">
+                        <img src="assets/images/Product/NuggetIkanStick.jpg" alt="Nugget Ikan Stick" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Nugget Ikan Stick</h4>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 35.000 / Pack</p>
+                            </div>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Tersedia</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Kerupuk Kulit Patin"
+                         data-price="Rp 35.000 / Pack"
+                         data-image="assets/images/Product/KerupukKulitPatin.jpg" 
+                         data-description="Kerupuk ikan homemade, renyah, gurih, dan tanpa bahan pengawet. Cocok sebagai teman makan atau camilan."
+                         data-availability="Selalu Tersedia"
+                         data-availability-class="bg-green-100 text-green-700"
+                         data-aos="zoom-in-up" data-aos-delay="300">
+                        <img src="assets/images/Product/KerupukKulitPatin.jpg" alt="Kerupuk Kulit Patin" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Kerupuk Kulit Patin</h4>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 35.000 / Pack</p>
+                            </div>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Selalu Tersedia</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                         data-name="Salai Ikan Patin"
+                         data-price="Rp 40.000 / Pack"
+                         data-image="assets/images/Product/SalaiIkanPatin.jpg" 
+                         data-description="Salai Ikan Patin dengan rasa original atau pedas. Terbuat dari daging ikan pilihan, cocok untuk taburan nasi atau isian roti."
+                         data-availability="Tersedia"
+                         data-availability-class="bg-green-100 text-green-700"
+                         data-aos="zoom-in-up" data-aos-delay="350">
+                        <img src="assets/images/Product/SalaiIkanPatin.jpg" alt="Salai Ikan Patin" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="p-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-slate-800 mb-1">Salai Ikan Patin</h4>
+                                <p class="text-blue-600 font-bold text-lg mb-2">Rp 40.000 / Pack</p>
+                            </div>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-auto">Tersedia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-slate-500 mt-12 text-center">* Klik pada produk untuk melihat detail dan melakukan pemesanan.<br>* Harga dan ketersediaan dapat berubah. Mohon konfirmasi melalui WhatsApp saat pemesanan.</p>
+        </div>
+    </section>
+
+    <div id="productModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[60] p-4 transition-opacity duration-300 ease-in-out" tabindex="-1" aria-labelledby="modalTitle" aria-modal="true" role="dialog">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg transform transition-all duration-300 ease-in-out scale-95 opacity-0 mx-auto" id="modalContent">
+            <div class="p-6 relative">
+                <button id="closeModalButton" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-sky-100 transition-colors" aria-label="Tutup modal">
+                    <i class="fas fa-times fa-lg"></i>
+                </button>
+                <div class="modal-body-scroll pr-2">
+                    <img id="modalImage" src="" alt="Detail Produk" class="w-full h-64 object-cover rounded-lg mb-4" loading="lazy">
+                    <h3 id="modalName" class="text-3xl font-bold text-slate-900 mb-2" aria-labelledby="modalTitle">Nama Produk</h3>
+                    <p id="modalPrice" class="text-blue-600 font-bold text-2xl mb-4">Harga</p>
+                    <div class="mb-4">
+                        <span id="modalAvailability" class="text-xs font-semibold px-2.5 py-0.5 rounded-full">Ketersediaan</span>
+                    </div>
+                    <p id="modalDescription" class="text-slate-600 leading-relaxed mb-6">Deskripsi produk.</p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-slate-200">
+                    <a id="modalWhatsAppButton" href="#" target="_blank" class="w-full block text-center px-6 py-3 bg-green-500 text-white text-lg font-semibold rounded-lg hover:bg-green-600 focus:bg-green-700 transition-all duration-200 ease-in-out shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                        <i class="fab fa-whatsapp fa-fw mr-2"></i> Pesan Sekarang via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+             <div class="mb-4">
+                <a class="text-xl font-bold text-blue-400 flex items-center justify-center group" href="index.html">
+                     <img src="assets/images/Logo IkanKu.svg" alt="Logo IkanKu" class="h-7 w-auto mr-2" loading="lazy">
+                    IkanKu
+                </a>
+            </div>
+            <p>&copy; <span id="currentYearPs"></span> IkanKu. Semua Hak Dilindungi.</p>
+            <p class="text-sm mt-1 text-slate-400">Dibuat sepenuh hati untuk pecinta ikan segar.</p>
+             <div class="mt-4 space-x-4">
+                <a href="https://www.facebook.com/share/1Ack7xFb5F/" class="hover:text-blue-400 transition-colors" aria-label="Facebook IkanKu"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://www.instagram.com/ikankukampar/?igsh=YnlucWV1N2FhZndy" class="hover:text-blue-400 transition-colors" aria-label="Instagram IkanKu"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="https://wa.me/6282381422067?text=Halo%20IkanKu,%20saya%20ingin%20bertanya%20tentang%20produk%20ikan." target="_blank" class="hover:text-blue-400 transition-colors" aria-label="WhatsApp IkanKu"><i class="fab fa-whatsapp fa-lg"></i></a>
+                <a href="https://www.tiktok.com/@ikanku30?_t=ZS-8w7d0HvqFV4&_r=1" class="hover:text-blue-400 transition-colors" aria-label="TikTok IkanKu"><i class="fab fa-tiktok fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" title="Kembali ke atas" class="hidden fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 z-50">
+        <i class="fas fa-arrow-up fa-lg"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700, 
+            offset: 50,   
+            once: false, 
+        });
+
+        const mobileMenuButtonPs = document.getElementById('mobile-menu-button-ps');
+        const mobileMenuPs = document.getElementById('mobile-menu-ps');
+        const iconOpenPs = document.getElementById('icon-open-ps');
+        const iconClosePs = document.getElementById('icon-close-ps');
+
+        if (mobileMenuButtonPs && mobileMenuPs && iconOpenPs && iconClosePs) {
+            mobileMenuButtonPs.addEventListener('click', () => {
+                const expanded = mobileMenuButtonPs.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButtonPs.setAttribute('aria-expanded', !expanded);
+                mobileMenuPs.classList.toggle('hidden');
+                iconOpenPs.classList.toggle('hidden');
+                iconClosePs.classList.toggle('hidden');
+            });
+        }
+        
+        const currentYearSpanPs = document.getElementById('currentYearPs');
+        if (currentYearSpanPs) {
+            currentYearSpanPs.textContent = new Date().getFullYear();
+        }
+
+        const productCards = document.querySelectorAll('.product-card');
+        const modal = document.getElementById('productModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModalButton = document.getElementById('closeModalButton');
+        
+        const modalImage = document.getElementById('modalImage');
+        const modalName = document.getElementById('modalName');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalAvailability = document.getElementById('modalAvailability');
+        const modalWhatsAppButton = document.getElementById('modalWhatsAppButton');
+        let previouslyFocusedElement = null;
+
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                previouslyFocusedElement = document.activeElement; 
+
+                const name = card.dataset.name;
+                const price = card.dataset.price;
+                const image = card.dataset.image;
+                const description = card.dataset.description;
+                const availability = card.dataset.availability;
+                const availabilityClass = card.dataset.availabilityClass;
+
+                modalImage.src = image;
+                modalImage.alt = name;
+                modalName.textContent = name;
+                modalPrice.textContent = price;
+                modalDescription.textContent = description;
+                
+                modalAvailability.textContent = availability;
+                modalAvailability.className = '';
+                modalAvailability.classList.add('text-xs', 'font-semibold', 'px-2.5', 'py-0.5', 'rounded-full', ...availabilityClass.split(' '));
+
+                const whatsappNumber = '6282381422067';
+                const message = `Halo IkanKu, saya tertarik untuk memesan ${name} (${price}). Mohon info ketersediaannya dan cara pemesanannya.`;
+                modalWhatsAppButton.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+                modal.classList.remove('hidden');
+                modal.classList.add('opacity-100');
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+                document.body.style.overflow = 'hidden';
+                modal.focus(); 
+            });
+        });
+
+        function closeModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            modal.classList.remove('opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+                if (previouslyFocusedElement) {
+                    previouslyFocusedElement.focus();
+                }
+            }, 300);
+        }
+
+        if (closeModalButton) {
+            closeModalButton.addEventListener('click', closeModal);
+        }
+
+        if (modal) {
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        }
+
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        if (scrollTopBtn) {
+            window.onscroll = function() {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollTopBtn.classList.remove('hidden', 'opacity-0');
+                    scrollTopBtn.classList.add('opacity-100');
+                } else {
+                    scrollTopBtn.classList.remove('opacity-100');
+                    scrollTopBtn.classList.add('opacity-0');
+                     setTimeout(() => {
+                         if (!(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)) {
+                            scrollTopBtn.classList.add('hidden');
+                         }
+                    }, 300);
+                }
+            };
+            scrollTopBtn.addEventListener('click', function(){
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        }
+    </script>
+</body>
+</html>
