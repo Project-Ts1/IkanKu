@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTOTYPE - Tentang Kami</title>
+    <link rel="stylesheet" href="prototype-style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container flex items-center justify-between">
+            <div class="placeholder placeholder-logo">LOGO</div>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="tentang-kami.html" class="active">Tentang Kami</a>
+                <a href="pesan-sekarang.html">Pesan Sekarang</a>
+                <a href="testimoni.html">Testimoni</a>
+            </div>
+            <button id="mobile-menu-button">Menu</button>
+        </div>
+         <div id="mobile-menu" class="hidden">
+            <a href="index.html">Beranda</a>
+            <a href="tentang-kami.html" class="active">Tentang Kami</a>
+            <a href="pesan-sekarang.html">Pesan Sekarang</a>
+            <a href="testimoni.html">Testimoni</a>
+        </div>
+    </nav>
+    
+    <header class="text-center py-16">
+        <div class="container">
+            <h1>Tentang Kami</h1>
+            <p>Penjelasan singkat mengenai perusahaan atau brand.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="py-16">
+            <div class="grid items-center" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h2>Judul Tentang Kami</h2>
+                    <p>Paragraf yang menjelaskan cerita, visi, dan misi perusahaan. Teks ini akan cukup panjang untuk mengisi ruang yang ada.</p>
+                    <h3>Visi Kami</h3>
+                    <p>Penjelasan poin visi.</p>
+                    <h3>Misi Kami</h3>
+                    <p>Penjelasan poin-poin misi.</p>
+                </div>
+                <div class="placeholder" style="min-height: 400px;">Gambar Ilustrasi</div>
+            </div>
+        </section>
+
+        <section class="py-16 text-center">
+            <h2>Tim Kami</h2>
+             <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2rem;">
+                <div class="card">
+                    <div class="placeholder placeholder-avatar mx-auto mb-4"></div>
+                    <h4>Nama Anggota</h4>
+                    <p>Jabatan</p>
+                </div>
+                <div class="card">
+                    <div class="placeholder placeholder-avatar mx-auto mb-4"></div>
+                    <h4>Nama Anggota</h4>
+                    <p>Jabatan</p>
+                </div>
+                <div class="card">
+                    <div class="placeholder placeholder-avatar mx-auto mb-4"></div>
+                    <h4>Nama Anggota</h4>
+                    <p>Jabatan</p>
+                </div>
+                 <div class="card">
+                    <div class="placeholder placeholder-avatar mx-auto mb-4"></div>
+                    <h4>Nama Anggota</h4>
+                    <p>Jabatan</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="placeholder placeholder-logo" style="margin: 0 auto 1rem auto;">LOGO</div>
+        <p>Teks Footer & Copyright</p>
+    </footer>
+
+    <button id="scrollTopBtn" class="hidden">^</button>
+
+    <script src="prototype-script.js" defer></script>
+</body>
+</html>

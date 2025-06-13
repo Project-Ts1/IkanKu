@@ -1,0 +1,210 @@
+/* prototype-style.css */
+
+/* --- Font & Global Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+
+body {
+    font-family: 'Gaegu', cursive;
+    background-color: #ffffff;
+    background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
+    background-size: 15px 15px;
+    color: #333;
+    border: 10px solid #fff;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+/* --- Utility Classes --- */
+.text-center { text-align: center; }
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.grid { display: grid; }
+.gap-4 { gap: 1rem; }
+.gap-8 { gap: 2rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.max-w-3xl { max-width: 48rem; }
+.container { max-width: 1024px; margin: 0 auto; padding: 0 1rem; }
+
+/* --- Placeholders (untuk gambar, logo, ikon) --- */
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 2px dashed #999;
+    color: #777;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+.placeholder::before, .placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    transform-origin: center;
+}
+
+.placeholder::before { transform: translateX(-1px) rotate(45deg); }
+.placeholder::after { transform: translateX(-1px) rotate(-45deg); }
+
+.placeholder-logo {
+    width: 100px;
+    height: 40px;
+}
+
+.placeholder-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.placeholder-img {
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 1rem;
+}
+
+.placeholder-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+/* --- Structure & Components --- */
+nav {
+    background: #fff;
+    border: 2px solid #333;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: sticky;
+    top: -1px;
+    z-index: 10;
+}
+
+nav .nav-links a {
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+nav .nav-links a.active {
+    border: 2px solid #333;
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+header.hero-section {
+    border: 2px solid #333;
+    padding: 5rem 2rem;
+    margin-bottom: 1rem;
+    background: #fdfdfd;
+}
+
+h1 { font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; }
+h2 { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
+p { margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.5; }
+
+.prototype-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #333;
+    background: #fff;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 4px 4px 0 #333;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.prototype-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #333;
+}
+
+.card {
+    border: 2px solid #333;
+    background: #fff;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+footer {
+    margin-top: 2rem;
+    border: 2px solid #333;
+    background-color: #f0f0f0;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* --- Mobile Menu --- */
+#mobile-menu-button {
+    display: block; /* Selalu tampilkan untuk prototipe */
+    border: 2px solid #333;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#mobile-menu {
+    border: 2px solid #333;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff;
+}
+#mobile-menu a {
+    display: block;
+    padding: 0.75rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+#mobile-menu a.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Sembunyikan elemen asli */
+#mobile-menu-button-idx, #mobile-menu-button-ps, #mobile-menu-button-tk, #mobile-menu-button-ts,
+.fa-facebook, .fa-instagram, .fa-whatsapp, .fa-tiktok, .fa-arrow-up, .fa-star, .fa-star-half-alt,
+.fa-check-circle, .fa-truck-fast, .fa-thumbs-up, .fa-users, .fa-shopping-cart, .fa-arrow-right,
+.fa-eye, .fa-bullseye, .fa-concierge-bell {
+    display: none !important;
+}
+
+/* Scroll to top button */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    background: #fff;
+    cursor: pointer;
+    z-index: 50;
+    font-size: 1.5rem;
+    line-height: 50px;
+    text-align: center;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTOTYPE - IkanKu Beranda</title>
+    <link rel="stylesheet" href="prototype-style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container flex items-center justify-between">
+            <div class="placeholder placeholder-logo">LOGO</div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Beranda</a>
+                <a href="tentang-kami.html">Tentang Kami</a>
+                <a href="pesan-sekarang.html">Pesan Sekarang</a>
+                <a href="testimoni.html">Testimoni</a>
+            </div>
+            <button id="mobile-menu-button">Menu</button>
+        </div>
+        <div id="mobile-menu" class="hidden">
+            <a href="index.html" class="active">Beranda</a>
+            <a href="tentang-kami.html">Tentang Kami</a>
+            <a href="pesan-sekarang.html">Pesan Sekarang</a>
+            <a href="testimoni.html">Testimoni</a>
+        </div>
+    </nav>
+
+    <header class="hero-section placeholder">
+        <div class="text-center max-w-3xl">
+            <h1>Judul Hero Utama</h1>
+            <h3>Subjudul yang menjelaskan nilai jual utama.</h3>
+            <div class="mt-10 flex gap-4 justify-center">
+                <a href="pesan-sekarang.html" class="prototype-button">Tombol Aksi Utama</a>
+                <a href="#keunggulan" class="prototype-button">Tombol Aksi Sekunder</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="keunggulan" class="py-16 text-center">
+            <h2>Judul Bagian Keunggulan</h2>
+            <p>Paragraf singkat menjelaskan mengapa produk ini unggul.</p>
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+                <div class="card">
+                    <h3>Keunggulan 1</h3>
+                    <p>Deskripsi singkat tentang keunggulan pertama produk.</p>
+                </div>
+                <div class="card">
+                    <h3>Keunggulan 2</h3>
+                    <p>Deskripsi singkat tentang keunggulan kedua produk.</p>
+                </div>
+                <div class="card">
+                    <h3>Keunggulan 3</h3>
+                    <p>Deskripsi singkat tentang keunggulan ketiga produk.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 text-center">
+            <h2>Jelajahi Lebih Lanjut</h2>
+             <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+                <a href="tentang-kami.html" class="card block" style="text-decoration:none; color: #333;">
+                    <h3>Tentang Kami</h3>
+                    <p>Link navigasi ke halaman Tentang Kami.</p>
+                </a>
+                <a href="pesan-sekarang.html" class="card block" style="text-decoration:none; color: #333;">
+                    <h3>Pesan Sekarang</h3>
+                    <p>Link navigasi ke halaman Pemesanan.</p>
+                </a>
+                <a href="testimoni.html" class="card block" style="text-decoration:none; color: #333;">
+                    <h3>Testimoni</h3>
+                    <p>Link navigasi ke halaman Testimoni.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="placeholder placeholder-logo" style="margin: 0 auto 1rem auto;">LOGO</div>
+        <p>Teks Footer & Copyright</p>
+        <div class="flex gap-4 justify-center" style="margin-top: 1rem;">
+            <div class="placeholder placeholder-icon"></div>
+            <div class="placeholder placeholder-icon"></div>
+            <div class="placeholder placeholder-icon"></div>
+            <div class="placeholder placeholder-icon"></div>
+        </div>
+    </footer>
+    
+    <button id="scrollTopBtn" class="hidden">^</button>
+
+    <script src="prototype-script.js" defer></script>
+</body>
+</html>

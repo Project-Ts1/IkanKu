@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTOTYPE - Pesan Sekarang</title>
+    <link rel="stylesheet" href="prototype-style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container flex items-center justify-between">
+            <div class="placeholder placeholder-logo">LOGO</div>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="tentang-kami.html">Tentang Kami</a>
+                <a href="pesan-sekarang.html" class="active">Pesan Sekarang</a>
+                <a href="testimoni.html">Testimoni</a>
+            </div>
+            <button id="mobile-menu-button">Menu</button>
+        </div>
+        <div id="mobile-menu" class="hidden">
+            <a href="index.html">Beranda</a>
+            <a href="tentang-kami.html">Tentang Kami</a>
+            <a href="pesan-sekarang.html" class="active">Pesan Sekarang</a>
+            <a href="testimoni.html">Testimoni</a>
+        </div>
+    </nav>
+    
+    <header class="text-center py-16">
+        <div class="container">
+            <h1>Halaman Produk</h1>
+            <p>Pilih produk yang Anda inginkan.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="produk-segar" class="py-16">
+            <h2 class="text-center">Kategori Produk 1: Ikan Segar</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="card">
+                    <div class="placeholder placeholder-img"></div>
+                    <h3>Nama Produk 1</h3>
+                    <p>Harga: Rp XX.XXX</p>
+                    <p>Deskripsi singkat produk akan ditampilkan di sini.</p>
+                    <button class="prototype-button block" style="width: 100%; text-align: center;">Lihat Detail</button>
+                </div>
+                <div class="card">
+                    <div class="placeholder placeholder-img"></div>
+                    <h3>Nama Produk 2</h3>
+                    <p>Harga: Rp XX.XXX</p>
+                    <p>Deskripsi singkat produk akan ditampilkan di sini.</p>
+                    <button class="prototype-button block" style="width: 100%; text-align: center;">Lihat Detail</button>
+                </div>
+                <div class="card">
+                    <div class="placeholder placeholder-img"></div>
+                    <h3>Nama Produk 3</h3>
+                    <p>Harga: Rp XX.XXX</p>
+                    <p>Deskripsi singkat produk akan ditampilkan di sini.</p>
+                    <button class="prototype-button block" style="width: 100%; text-align: center;">Lihat Detail</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="produk-olahan" class="py-16">
+            <h2 class="text-center">Kategori Produk 2: Olahan</h2>
+             <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="card">
+                    <div class="placeholder placeholder-img"></div>
+                    <h3>Nama Produk Olahan 1</h3>
+                    <p>Harga: Rp XX.XXX</p>
+                    <p>Deskripsi singkat produk olahan akan ditampilkan di sini.</p>
+                    <button class="prototype-button block" style="width: 100%; text-align: center;">Lihat Detail</button>
+                </div>
+                <div class="card">
+                    <div class="placeholder placeholder-img"></div>
+                    <h3>Nama Produk Olahan 2</h3>
+                    <p>Harga: Rp XX.XXX</p>
+                    <p>Deskripsi singkat produk olahan akan ditampilkan di sini.</p>
+                    <button class="prototype-button block" style="width: 100%; text-align: center;">Lihat Detail</button>
+                </div>
+             </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="placeholder placeholder-logo" style="margin: 0 auto 1rem auto;">LOGO</div>
+        <p>Teks Footer & Copyright</p>
+    </footer>
+    
+    <button id="scrollTopBtn" class="hidden">^</button>
+
+    <script src="prototype-script.js" defer></script>
+</body>
+</html>

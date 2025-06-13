@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTOTYPE - Testimoni</title>
+    <link rel="stylesheet" href="prototype-style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container flex items-center justify-between">
+            <div class="placeholder placeholder-logo">LOGO</div>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="tentang-kami.html">Tentang Kami</a>
+                <a href="pesan-sekarang.html">Pesan Sekarang</a>
+                <a href="testimoni.html" class="active">Testimoni</a>
+            </div>
+            <button id="mobile-menu-button">Menu</button>
+        </div>
+        <div id="mobile-menu" class="hidden">
+            <a href="index.html">Beranda</a>
+            <a href="tentang-kami.html">Tentang Kami</a>
+            <a href="pesan-sekarang.html">Pesan Sekarang</a>
+            <a href="testimoni.html" class="active">Testimoni</a>
+        </div>
+    </nav>
+    
+    <header class="text-center py-16">
+        <div class="container">
+            <h1>Apa Kata Mereka</h1>
+            <p>Kumpulan testimoni dari pelanggan setia kami.</p>
+        </div>
+    </header>
+
+    <main class="container py-16">
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="card">
+                <div class="flex items-center mb-4 gap-4">
+                    <div class="placeholder placeholder-avatar"></div>
+                    <div>
+                        <h4>Nama Pelanggan</h4>
+                        <p style="margin: 0; font-size: 0.9rem;">Lokasi</p>
+                    </div>
+                </div>
+                <p>"Ini adalah teks testimoni. Pelanggan akan memberikan ulasan positif mengenai produk atau layanan di sini."</p>
+                <div style="font-size: 1.5rem;">★★★★☆</div>
+            </div>
+            <div class="card">
+                 <div class="flex items-center mb-4 gap-4">
+                    <div class="placeholder placeholder-avatar"></div>
+                    <div>
+                        <h4>Nama Pelanggan</h4>
+                        <p style="margin: 0; font-size: 0.9rem;">Lokasi</p>
+                    </div>
+                </div>
+                <p>"Ini adalah teks testimoni. Pelanggan akan memberikan ulasan positif mengenai produk atau layanan di sini."</p>
+                <div style="font-size: 1.5rem;">★★★★★</div>
+            </div>
+            <div class="card">
+                 <div class="flex items-center mb-4 gap-4">
+                    <div class="placeholder placeholder-avatar"></div>
+                    <div>
+                        <h4>Nama Pelanggan</h4>
+                        <p style="margin: 0; font-size: 0.9rem;">Lokasi</p>
+                    </div>
+                </div>
+                <p>"Ini adalah teks testimoni. Pelanggan akan memberikan ulasan positif mengenai produk atau layanan di sini."</p>
+                <div style="font-size: 1.5rem;">★★★★★</div>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 4rem;">
+            <a href="pesan-sekarang.html" class="prototype-button">Coba Sekarang!</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="placeholder placeholder-logo" style="margin: 0 auto 1rem auto;">LOGO</div>
+        <p>Teks Footer & Copyright</p>
+    </footer>
+    
+    <button id="scrollTopBtn" class="hidden">^</button>
+
+    <script src="prototype-script.js" defer></script>
+</body>
+</html>
