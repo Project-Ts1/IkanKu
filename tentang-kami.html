@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - IkanKu</title>
+    <meta name="description" content="Kenali IkanKu, platform digital untuk jual beli ikan segar di Kampar. Kami menghubungkan pembudidaya ikan lokal dengan Anda untuk kualitas terbaik dan harga terjangkau.">
+    <title>Tentang IkanKu - Supplier Ikan Air Tawar Terpercaya di Kampar</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
     <script>
         const defaultTheme = tailwind.defaultTheme;
@@ -30,6 +33,34 @@
         html { scroll-behavior: smooth; }
         #scrollTopBtn {
             transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        /* Kustomisasi untuk Panah Navigasi Swiper */
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: white !important;
+        }
+        
+        /* Animasi profesional untuk visi dan misi */
+        .vision-mission-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .vision-mission-item.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .swiper-container {
+                height: 350px;
+            }
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
         }
     </style>
 </head>
@@ -70,18 +101,10 @@
             </div>
             <div class="pt-4 pb-3 border-t border-blue-200">
                 <div class="px-5 flex justify-around items-center">
-                    <a href="https://www.facebook.com/share/1Ack7xFb5F/" class="text-blue-700 hover:text-blue-500 p-1" aria-label="Facebook IkanKu">
-                        <i class="fab fa-facebook fa-lg"></i><span class="sr-only">Facebook</span>
-                    </a>
-                    <a href="https://www.instagram.com/ikankukampar?igsh=YnlucWV1N2FhZndy" class="text-blue-700 hover:text-blue-500 p-1" aria-label="Instagram IkanKu">
-                        <i class="fab fa-instagram fa-lg"></i><span class="sr-only">Instagram</span>
-                    </a>
-                    <a href="https://wa.me/6282381422067?text=Halo%20IkanKu,%20saya%20ingin%20bertanya%20tentang%20IkanKu." target="_blank" class="text-blue-700 hover:text-blue-500 p-1" aria-label="WhatsApp IkanKu">
-                        <i class="fab fa-whatsapp fa-lg"></i><span class="sr-only">WhatsApp</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@ikanku30?_t=ZS-8w7d0HvqFV4&_r=1" class="text-blue-700 hover:text-blue-500 p-1" aria-label="TikTok IkanKu">
-                        <i class="fab fa-tiktok fa-lg"></i><span class="sr-only">TikTok</span>
-                    </a>
+                    <a href="https://www.facebook.com/share/1Ack7xFb5F/" class="text-blue-700 hover:text-blue-500 p-1" aria-label="Facebook IkanKu"><i class="fab fa-facebook fa-lg"></i><span class="sr-only">Facebook</span></a>
+                    <a href="https://www.instagram.com/ikankukampar?igsh=YnlucWV1N2FhZndy" class="text-blue-700 hover:text-blue-500 p-1" aria-label="Instagram IkanKu"><i class="fab fa-instagram fa-lg"></i><span class="sr-only">Instagram</span></a>
+                    <a href="https://wa.me/6282381422067?text=Halo%20IkanKu,%20saya%20ingin%20bertanya%20tentang%20IkanKu." target="_blank" class="text-blue-700 hover:text-blue-500 p-1" aria-label="WhatsApp IkanKu"><i class="fab fa-whatsapp fa-lg"></i><span class="sr-only">WhatsApp</span></a>
+                    <a href="https://www.tiktok.com/@ikanku30?_t=ZS-8w7d0HvqFV4&_r=1" class="text-blue-700 hover:text-blue-500 p-1" aria-label="TikTok IkanKu"><i class="fab fa-tiktok fa-lg"></i><span class="sr-only">TikTok</span></a>
                 </div>
             </div>
         </div>
@@ -89,15 +112,15 @@
 
     <div class="bg-white py-8 sm:py-12 shadow" data-aos="fade-in">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-3xl sm:text-4xl font-bold text-blue-700">Tentang IkanKu</h1>
-            <p class="mt-3 text-lg text-slate-600">Kualitas dan Kesegaran Ikan Air Tawar Pilihan Anda.</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-700" data-aos="fade-in" data-aos-delay="50">Tentang IkanKu</h1>
+            <p class="mt-3 text-lg text-slate-600" data-aos="fade-in" data-aos-delay="150">Kualitas dan Kesegaran Ikan Air Tawar Pilihan Anda.</p>
         </div>
     </div>
 
-    <section class="py-16 sm:py-24 bg-sky-100">
+    <section class="py-12 sm:py-20 bg-sky-100">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-right" data-aos-offset="100">
+            <div class="flex flex-col lg:flex-row gap-8 items-center">
+                <div class="w-full lg:w-1/2 order-2 lg:order-1 bg-white p-6 sm:p-8 rounded-xl shadow-lg" data-aos="fade-right" data-aos-offset="100">
                     <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 mb-4">Ikan Segar Berkualitas, Langsung ke Tangan Anda</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">
                         IkanKu adalah platform digital yang menyediakan ikan segar langsung dari
@@ -106,7 +129,7 @@
                         Kami mengedepankan kualitas dan kesegaran yang memastikan ikan tetap dalam kondisi terbaik 
                         saat diterima oleh pelanggan.
                     </p>
-                    <div class="mb-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-8 vision-mission-item" id="vision-item">
                         <h3 class="text-xl font-semibold text-blue-700 mb-3 flex items-center">
                             <i class="fas fa-eye fa-fw mr-3 text-blue-500"></i>Visi Kami
                         </h3>
@@ -115,7 +138,7 @@
                             yang memberikan akses mudah, cepat, dan berkelanjutan untuk ikan berkualitas tinggi.
                         </p>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="vision-mission-item" id="mission-item">
                         <h3 class="text-xl font-semibold text-blue-700 mb-3 flex items-center">
                             <i class="fas fa-bullseye fa-fw mr-3 text-blue-500"></i>Misi Kami
                         </h3>
@@ -135,46 +158,50 @@
                         </ul>
                     </div>
                 </div>
-                <div class="order-1 md:order-2" data-aos="fade-left" data-aos-offset="100">
-                    <img src="assets/images/TentangKami.svg" alt="Tentang IkanKu Platform Digital" class="rounded-xl shadow-2xl object-cover w-full h-auto md:h-[500px]" loading="lazy">
+                <div class="w-full lg:w-1/2 order-1 lg:order-2 h-[400px] sm:h-[500px]" data-aos="fade-left" data-aos-offset="100">
+                    <div class="swiper mySwiper rounded-xl shadow-2xl w-full h-full">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/images/Team/TentangKami1.jpeg" alt="Tentang IkanKu 1" class="object-cover w-full h-full" loading="lazy"></div>
+                            <div class="swiper-slide"><img src="assets/images/Team/TentangKami2.jpeg" alt="Tentang IkanKu 2" class="object-cover w-full h-full" loading="lazy"></div>
+                            <div class="swiper-slide"><img src="assets/images/Team/TentangKami3.jpeg" alt="Tentang IkanKu 3" class="object-cover w-full h-full" loading="lazy"></div>
+                            <div class="swiper-slide"><img src="assets/images/Team/TentangKami4.jpeg" alt="Tentang IkanKu 4" class="object-cover w-full h-full" loading="lazy"></div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-12 sm:py-20 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 mb-10 text-center" data-aos="fade-up">Team</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 mb-8 sm:mb-12 text-center" data-aos="fade-up">Tim Kami</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-center">
                 <div class="text-center bg-sky-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow" data-aos="zoom-in-up" data-aos-delay="100">
-                    <img src="https://via.placeholder.com/150/38bdf8/ffffff?text=FOTO" alt="Anggota Tim 1" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-4 border-white" loading="lazy">
-                    <h4 class="text-lg font-semibold text-slate-800">Nama Pendiri</h4>
+                    <img src="assets/images/Team/Riana.jpeg" alt="Agustin Riana - Founder & CEO" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-4 border-white object-cover" loading="lazy">
+                    <h4 class="text-lg font-semibold text-slate-800">Agustin Riana</h4>
                     <p class="text-sm text-blue-600">Founder & CEO</p>
                     <p class="mt-2 text-xs text-slate-500">"Membawa kesegaran ikan langsung ke meja Anda."</p>
                 </div>
                 <div class="text-center bg-sky-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow" data-aos="zoom-in-up" data-aos-delay="200">
-                    <img src="https://via.placeholder.com/150/60a5fa/ffffff?text=FOTO" alt="Anggota Tim 2" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-4 border-white" loading="lazy">
-                    <h4 class="text-lg font-semibold text-slate-800">Ahli Perikanan</h4>
-                    <p class="text-sm text-blue-600">Kepala Quality Control</p>
-                    <p class="mt-2 text-xs text-slate-500">"Kualitas adalah prioritas utama kami."</p>
-                </div>
-                <div class="text-center bg-sky-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow" data-aos="zoom-in-up" data-aos-delay="300">
-                    <img src="https://via.placeholder.com/150/0ea5e9/ffffff?text=FOTO" alt="Anggota Tim 3" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-4 border-white" loading="lazy">
-                    <h4 class="text-lg font-semibold text-slate-800">Manajer Pemasaran</h4>
-                    <p class="text-sm text-blue-600">Marketing Manager</p>
+                    <img src="assets/images/Team/Putri.jpeg" alt="Putri Dalianti - Chief Marketing Officer" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-4 border-white object-cover" loading="lazy">
+                    <h4 class="text-lg font-semibold text-slate-800">Putri Dalianti</h4>
+                    <p class="text-sm text-blue-600">Chief Marketing Officer</p>
                     <p class="mt-2 text-xs text-slate-500">"Menjangkau Anda dengan produk terbaik."</p>
                 </div>
-                <div class="text-center bg-sky-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow" data-aos="zoom-in-up" data-aos-delay="400">
-                    <img src="https://via.placeholder.com/150/0284c7/ffffff?text=FOTO" alt="Anggota Tim 4" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-4 border-white" loading="lazy">
-                    <h4 class="text-lg font-semibold text-slate-800">Kepala Logistik</h4>
-                    <p class="text-sm text-blue-600">Logistics Head</p>
-                    <p class="mt-2 text-xs text-slate-500">"Memastikan ikan sampai dengan segar."</p>
+                <div class="text-center bg-sky-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow" data-aos="zoom-in-up" data-aos-delay="300">
+                    <img src="assets/images/Team/Zafira.jpeg" alt="Zafira Dayana - Chief Business Development Officer" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-4 border-white object-cover" loading="lazy">
+                    <h4 class="text-lg font-semibold text-slate-800">Zafira Dayana</h4>
+                    <p class="text-sm text-blue-600">Chief Business Development Officer</p>
+                    <p class="mt-2 text-xs text-slate-500">"Kualitas adalah prioritas utama kami."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- <footer class="bg-slate-900 text-slate-300 py-12">
+    <footer class="bg-slate-900 text-slate-300 py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
              <div class="mb-4">
                 <a class="text-xl font-bold text-blue-400 flex items-center justify-center group" href="index.html">
@@ -191,50 +218,13 @@
                 <a href="https://www.tiktok.com/@ikanku30?_t=ZS-8w7d0HvqFV4&_r=1" class="hover:text-blue-400 transition-colors" aria-label="TikTok IkanKu"><i class="fab fa-tiktok fa-lg"></i></a>
             </div>
         </div>
-    </footer> -->
-
-    <footer class="bg-slate-900 text-slate-300 py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex items-center justify-between">
-                <!-- Left Box with FlagCounter -->
-                <div class="flex-1">
-                    <a href="http://s01.flagcounter.com/more/hcz">
-                        <img src="https://s01.flagcounter.com/count2/hcz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_4/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0">
-                    </a>
-                </div>
-    
-                <!-- Middle Box (Content Box) -->
-                <div class="flex-2">
-                    <div class="mb-4">
-                        <a class="text-xl font-bold text-blue-400 flex items-center justify-center group" href="index.html">
-                            <img src="assets/images/Logo IkanKu.svg" alt="Logo IkanKu" class="h-7 w-auto mr-2" loading="lazy">
-                            IkanKu
-                        </a>
-                    </div>
-                    <p>&copy; <span id="currentYear"></span> IkanKu. Semua Hak Dilindungi.</p>
-                    <p class="text-sm mt-1 text-slate-400">Dibuat sepenuh hati untuk pecinta ikan segar.</p>
-                    <div class="mt-4 space-x-4">
-                        <a href="https://www.facebook.com/share/1Ack7xFb5F/" class="hover:text-blue-400 transition-colors" aria-label="Facebook IkanKu"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com/ikankukampar/?igsh=YnlucWV1N2FhZndy" class="hover:text-blue-400 transition-colors" aria-label="Instagram IkanKu"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://wa.me/6282381422067?text=Halo%20IkanKu,%20saya%20ingin%20bertanya%20tentang%20IkanKu." target="_blank" class="hover:text-blue-400 transition-colors" aria-label="WhatsApp IkanKu"><i class="fab fa-whatsapp fa-lg"></i></a>
-                        <a href="https://www.tiktok.com/@ikanku30?_t=ZS-8w7d0HvqFV4&_r=1" class="hover:text-blue-400 transition-colors" aria-label="TikTok IkanKu"><i class="fab fa-tiktok fa-lg"></i></a>
-                    </div>
-                </div>
-    
-                <!-- Right Box with FlagCounter -->
-                <div class="flex-1">
-                    <!-- <a href="http://s01.flagcounter.com/more/hcz">
-                        <img src="https://s01.flagcounter.com/count2/hcz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_4/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0">
-                    </a> -->
-                </div>
-            </div>
-        </div>
     </footer>
 
     <button id="scrollTopBtn" title="Kembali ke atas" class="hidden fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 z-50">
         <i class="fas fa-arrow-up fa-lg"></i>
     </button>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -243,6 +233,26 @@
             once: false, 
         });
 
+        // Inisialisasi Swiper Slider
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            effect: "fade",
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        // Mobile menu toggle
         const mobileMenuButtonTk = document.getElementById('mobile-menu-button-tk');
         const mobileMenuTk = document.getElementById('mobile-menu-tk');
         const iconOpenTk = document.getElementById('icon-open-tk');
@@ -258,11 +268,13 @@
             });
         }
         
+        // Set current year in footer
         const currentYearSpanTk = document.getElementById('currentYearTk');
         if (currentYearSpanTk) {
             currentYearSpanTk.textContent = new Date().getFullYear();
         }
 
+        // Scroll to top button
         const scrollTopBtn = document.getElementById('scrollTopBtn'); 
         if (scrollTopBtn) {
             window.onscroll = function() {
@@ -283,6 +295,28 @@
                 window.scrollTo({top: 0, behavior: 'smooth'});
             });
         }
+        
+        // Professional animation for vision and mission
+        function animateVisionMission() {
+            const visionItem = document.getElementById('vision-item');
+            const missionItem = document.getElementById('mission-item');
+            
+            if (visionItem && missionItem) {
+                // Delay animation slightly for better effect
+                setTimeout(() => {
+                    visionItem.classList.add('animated');
+                }, 300);
+                
+                setTimeout(() => {
+                    missionItem.classList.add('animated');
+                }, 600);
+            }
+        }
+        
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateVisionMission();
+        });
     </script>
 </body>
 </html>
